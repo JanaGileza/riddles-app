@@ -1,0 +1,20 @@
+[
+    {
+        "riddle": "this is riddle 1",
+        "answer": "answer1",
+        "hint": "riddle 1 hint",
+        "id": "1"
+    },
+    {
+        "riddle": "this is riddle 2",
+        "answer": "answer2",
+        "hint": "riddle 2 hint",
+        "id": "2"
+    },
+    {
+        "riddle": "this is riddle 3",
+        "answer": "answer3",
+        "hint": "riddle 3 hint",
+        "id": "3"
+    }
+]
