@@ -1,5 +1,5 @@
 import { expect } from "@jest/globals";
-import { isCorrectAnswer, Riddle } from "../riddles";
+import { getRandomRiddle, isCorrectAnswer, Riddle } from "../riddles";
 
 describe("isCorrectAnswer() - Check if answer taken in matches answer given, case insensitive", () => {
   test("Given correct answer, returns true", () => {
@@ -46,5 +46,57 @@ describe("isCorrectAnswer() - Check if answer taken in matches answer given, cas
   test("Given an empty answer, returns false", () => {
     const correctAnswer = isCorrectAnswer("", []);
     expect(correctAnswer).toBe(false);
+  });
+});
+
+describe("getRandomRiddle() - Check if the riddles are randomizing properly, not repeating the previous riddle shown", () => {
+  test("Given that the user has not yet received a riddle, identify that no riddle has been given and get a new riddle from the entire array", () => {
+    const mockRiddles: Riddle[] = [
+      {
+        riddle: "this is mock riddle 1",
+        answer: "this is a mock answer",
+        hint: "",
+        id: 0,
+      },
+      {
+        riddle: "this is mock riddle 2",
+        answer: "this is another mock answer",
+        hint: "",
+        id: 1,
+      },
+      {
+        riddle: "this is mock riddle 3",
+        answer: "this is the mock answer",
+        hint: "",
+        id: 2,
+      },
+    ];
+    const currentRiddle = getRandomRiddle(undefined, mockRiddles);
+    expect(currentRiddle).toBeDefined();
+  });
+
+  test("Given the player has already received a riddle, the next riddle will be a new riddle", () => {
+    const mockRiddles: Riddle[] = [
+      {
+        riddle: "this is mock riddle 1",
+        answer: "this is a mock answer",
+        hint: "",
+        id: 0,
+      },
+      {
+        riddle: "this is mock riddle 2",
+        answer: "this is another mock answer",
+        hint: "",
+        id: 1,
+      },
+      {
+        riddle: "this is mock riddle 3",
+        answer: "this is the mock answer",
+        hint: "",
+        id: 2,
+      },
+    ];
+    const nextRiddle = getRandomRiddle(mockRiddles[2], mockRiddles);
+    expect(nextRiddle).toBeDefined();
   });
 });

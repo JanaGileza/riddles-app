@@ -39,9 +39,11 @@ function getRandomRiddle(
       (riddle) => riddle === currentRiddle
     );
   }
-
+  //console.log(riddlesSubset.length);
   const randomIndex = Math.floor(Math.random() * (riddlesSubset.length - 1));
+  //console.log(randomIndex);
   const newRandomRiddle = riddlesSubset[randomIndex];
+  //console.log(newRandomRiddle);
   return newRandomRiddle;
 }
 
