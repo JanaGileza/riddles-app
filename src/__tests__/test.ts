@@ -1,4 +1,3 @@
-import { expect } from "@jest/globals";
 import { getRandomRiddle, isCorrectAnswer, Riddle } from "../riddles";
 
 describe("isCorrectAnswer() - Check if answer taken in matches answer given, case insensitive", () => {

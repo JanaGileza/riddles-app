@@ -31,20 +31,11 @@ function getRandomRiddle(
   currentRiddle: Riddle | undefined,
   riddlesDatabase: RiddlesDatabase
 ) {
-  let riddlesSubset = undefined;
-  if (currentRiddle === undefined) {
-    riddlesSubset = riddlesDatabase;
-  } else {
-    riddlesSubset = riddlesDatabase.filter(
-      (riddle) => riddle === currentRiddle
-    );
-  }
-  //console.log(riddlesSubset.length);
-  const randomIndex = Math.floor(Math.random() * (riddlesSubset.length - 1));
-  //console.log(randomIndex);
-  const newRandomRiddle = riddlesSubset[randomIndex];
-  //console.log(newRandomRiddle);
-  return newRandomRiddle;
+  const db = new Set(riddlesDatabase);
+  const curr = new Set([currentRiddle]);
+  const subsetWithoutCurrent = [db.difference(curr)];
+  const randomIndex = Math.random() * (subsetWithoutCurrent.length - 1);
+  return subsetWithoutCurrent[randomIndex];
 }
 
 export { getRandomRiddle, isCorrectAnswer };
