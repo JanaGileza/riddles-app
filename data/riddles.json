@@ -1,20 +1,63 @@
 [
     {
-        "riddle": "this is riddle 1",
-        "answer": "answer1",
-        "hint": "riddle 1 hint",
+        "riddle": "Oft I must strive with wind and wave, battle them both when under the sea. I feel out the bottom, a foreign land. In lying still, I am strong in the strife. If I fail in that, they are stronger than I, and wrenching me loose, soon put me to rout. They wish to capture what I must keep. I can master them both if my grip holds out, If the rocks bring succour and lend suppport, strength in the struggle. Ask me my name!",
+        "answer": "Anchor",
+        "hint": "What holds boats still in the sea?",
         "id": 1
     },
     {
-        "riddle": "this is riddle 2",
-        "answer": "answer2",
-        "hint": "riddle 2 hint",
+        "riddle": "Weight in my belly, Trees on my back, Nails in my ribs, Feet I do lack.",
+        "answer": "Ship",
+        "hint": "What can sail the seven seas?",
         "id": 2
     },
     {
-        "riddle": "this is riddle 3",
-        "answer": "answer3",
-        "hint": "riddle 3 hint",
+        "riddle": "The wave, over a wave, a weird thing I saw, Through-wrought, and wonderful ornate: A wonder on the waves, water become bone.",
+        "answer": "Ice",
+        "hint": "What object can make a hot drink cold?",
         "id": 3
+    },
+    {
+        "riddle":"What does man love more than life, Fear more than death or mortal strife, What the poor have, the rich require, And what contented men desire, What misers spend, and spendthrifts save, And all men carry to the grave?",
+        "answer":"Nothing",
+        "hint":"Is there anything guaranteed to man beond the grave?",
+        "id":4
+    },
+    {
+        "riddle":"What gets wetter the more it dries?",
+        "answer":"Towel",
+        "hint":"What do you use to dry off when wet?",
+        "id":5
+    },
+    {
+        "riddle":"Only one color, but not one size, Stuck at the bottom, yet easily flies, Present in sun but not in rain, doing no harm and feeling no pain. What am I?",
+        "answer":"Shadow",
+        "hint":"What follows behind you on sunny days?",
+        "id":6
+    },
+    {
+        "riddle":"What force and strength cannot get through, I with a gentle touch can do, And many in the streets would stand were I not a friend at hand.",
+        "answer":"Key",
+        "hint":"What tool allows man to enter a locked house?",
+        "id":7
+    },
+    {
+        "riddle":"In marble walls as ahite as milked, Lined with skin as soft as silk, Within a fountain crystal clear, A golden apple does appear. No doors are there to this stronghold, yet thieves break in and steal the gold.",
+        "answer":"Egg",
+        "hint":"This is a popular breakfast food",
+        "id":8
+    },
+    {
+        "riddle":"Black we are, and much admired, men seek for us when tired. We tire the horses, but comfor man, Tell me this riddle if you can",
+        "answer":"Coal",
+        "hint":"What is used to start fires?",
+        "id":9
+    },
+    {
+        "riddle":"Round like an apple, deep like a cup, yet all the King's horses cannot pull it up",
+        "answer":"Well",
+        "hint":"People often visit these to gather water",
+        "id":10
     }
+    
 ]

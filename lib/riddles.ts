@@ -31,11 +31,23 @@ function getRandomRiddle(
   currentRiddle: Riddle | undefined,
   riddlesDatabase: RiddlesDatabase
 ) {
-  const db = new Set(riddlesDatabase);
-  const curr = new Set([currentRiddle]);
-  const subsetWithoutCurrent = [db.difference(curr)];
-  const randomIndex = Math.random() * (subsetWithoutCurrent.length - 1);
-  return subsetWithoutCurrent[randomIndex];
+  if (currentRiddle === undefined) {
+    const randomIndex = Math.floor(Math.random() * riddlesDatabase.length);
+    return riddlesDatabase[randomIndex];
+  }
+
+  let currentIndex = 0;
+  const allowedIndexes = [];
+  const skipIndex = riddlesDatabase.indexOf(currentRiddle);
+  while (currentIndex < riddlesDatabase.length) {
+    if (currentIndex !== skipIndex) {
+      allowedIndexes.push(currentIndex);
+    }
+    currentIndex++;
+  }
+  const randomIndex =
+    allowedIndexes[Math.floor(Math.random() * allowedIndexes.length)];
+  return riddlesDatabase[randomIndex];
 }
 
 export { getRandomRiddle, isCorrectAnswer };
