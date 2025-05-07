@@ -7,7 +7,13 @@ type RiddleAnswerProps = {
 function RiddleAnswer({ onInputCallback }: RiddleAnswerProps) {
   return (
     <label>
-      Answer: <input name="attemptedAnswer" onChange={onInputCallback} />
+      Answer:{" "}
+      <input
+        name="attemptedAnswer"
+        onChange={onInputCallback}
+        required
+        autoComplete="off"
+      />
     </label>
   );
 }
