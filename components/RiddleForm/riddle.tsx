@@ -5,8 +5,9 @@ import RiddlePrompt from "./RiddlePrompt/riddle-prompt";
 import { useState } from "react";
 import RiddleAnswer from "./RiddleAnswer/riddle-answer";
 import riddlesData from "@/data/riddles.json";
-import RiddleButton from "./RiddleButton/riddle-button";
+//import RiddleButton from "./RiddleButton/riddle-button";
 import RiddleHint from "./RiddleHover/riddle-hover";
+import RiddleDialog, { CloseButtonData } from "./RiddleDialog/riddle-dialog";
 
 const riddlesDatabase: Riddle[] = riddlesData;
 
@@ -14,6 +15,8 @@ function RiddleForm({ riddle }: { riddle: Riddle | undefined }) {
   const [attemptedAnswer, setAttemptedAnswer] = useState<string>("");
   const [hintRequested, setHintRequested] = useState<boolean>(false);
   const [guessCounter, setGuessCount] = useState<number>(0);
+  const [dialogDescription, setDialogDescription] = useState<string>("");
+  const [currentTitle, setTitle] = useState<string>("");
   const MAX_GUESS_COUNT = 3;
 
   function onAnswerInputChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -33,8 +36,14 @@ function RiddleForm({ riddle }: { riddle: Riddle | undefined }) {
     console.log("mouse exited");
   }
 
-  function onSubmitForm(e: React.MouseEvent<HTMLButtonElement>) {
-    e.preventDefault();
+  function onUserClickedSubmit(open: boolean) {
+    if (open) {
+      onSubmitForm();
+    }
+  }
+
+  function onSubmitForm() {
+    setTitle("Result: ");
 
     if (attemptedAnswer === "") {
       return;
@@ -45,36 +54,52 @@ function RiddleForm({ riddle }: { riddle: Riddle | undefined }) {
     );
 
     if (userAnsweredCorrectly) {
-      alert("You have answered correctly! Click 'next' to try a new riddle!");
+      setDialogDescription(
+        "You have answered correctly! Click 'next' to try a new riddle!"
+      );
     } else {
       const currentGuessCount = guessCounter + 1;
       setGuessCount(currentGuessCount);
-      alert(
+      setDialogDescription(
         `You have answered incorrectly! Click 'OK' to try again. You have ${
           MAX_GUESS_COUNT - currentGuessCount
         } guesses left!`
       );
       if (currentGuessCount >= MAX_GUESS_COUNT) {
-        alert("You have answered incorrectly! You have no more guesses.");
+        setDialogDescription(
+          "You have answered incorrectly! You have no more guesses."
+        );
       } else {
       }
     }
-    alert(
-      `You submitted '${attemptedAnswer}' as your answer! It was ${userAnsweredCorrectly}`
-    );
-
     // if correct, update the UI accordingly!
     // otherwise, numberOfAttemptedAnswers ++
   }
 
   const hintIfHovering = hintRequested ? riddle?.hint : undefined;
 
+  const closeDialogButtonData: CloseButtonData = {
+    text: "Close",
+    onClickCallback: (e) => console.log("Close button clicked!"),
+  };
+
+  const nextRiddleDialogButtonData: CloseButtonData = {
+    text: "Next riddle",
+    onClickCallback: (e) => console.log("Next riddle button clicked!"),
+  };
+
   return (
     <div>
       <h2>Riddle</h2>
       <RiddlePrompt riddle={riddle} />
       <RiddleAnswer onInputCallback={onAnswerInputChange} />
-      <RiddleButton onClickCallback={onSubmitForm} />
+      <RiddleDialog
+        onDialogOpenCallback={onUserClickedSubmit}
+        triggerText={"Submit"}
+        title={currentTitle}
+        description={dialogDescription}
+        closeButtons={[closeDialogButtonData, nextRiddleDialogButtonData]}
+      />
       <RiddleHint
         onMouseEnterCallback={onHintMouseEnter}
         onMouseLeaveCallback={onHintMouseExit}
