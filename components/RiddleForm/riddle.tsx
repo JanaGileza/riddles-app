@@ -13,6 +13,8 @@ const riddlesDatabase: Riddle[] = riddlesData;
 function RiddleForm({ riddle }: { riddle: Riddle | undefined }) {
   const [attemptedAnswer, setAttemptedAnswer] = useState<string>("");
   const [hintRequested, setHintRequested] = useState<boolean>(false);
+  const [guessCounter, setGuessCount] = useState<number>(0);
+  const MAX_GUESS_COUNT = 3;
 
   function onAnswerInputChange(e: React.ChangeEvent<HTMLInputElement>) {
     e.preventDefault();
@@ -20,26 +22,43 @@ function RiddleForm({ riddle }: { riddle: Riddle | undefined }) {
   }
 
   function onHintMouseEnter(e: React.MouseEvent<HTMLElement>) {
+    e.preventDefault();
     setHintRequested(true);
     console.log("mouse entered");
   }
 
   function onHintMouseExit(e: React.MouseEvent<HTMLElement>) {
+    e.preventDefault();
     setHintRequested(false);
-    console.log("mouse exit");
+    console.log("mouse exited");
   }
 
   function onSubmitForm(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
+
     if (attemptedAnswer === "") {
       return;
     }
-    // the user clicked the button
-    // check the answer using isCorrectAnswer
     const userAnsweredCorrectly = isCorrectAnswer(
       attemptedAnswer,
       riddlesDatabase
     );
+
+    if (userAnsweredCorrectly) {
+      alert("You have answered correctly! Click 'next' to try a new riddle!");
+    } else {
+      const currentGuessCount = guessCounter + 1;
+      setGuessCount(currentGuessCount);
+      alert(
+        `You have answered incorrectly! Click 'OK' to try again. You have ${
+          MAX_GUESS_COUNT - currentGuessCount
+        } guesses left!`
+      );
+      if (currentGuessCount >= MAX_GUESS_COUNT) {
+        alert("You have answered incorrectly! You have no more guesses.");
+      } else {
+      }
+    }
     alert(
       `You submitted '${attemptedAnswer}' as your answer! It was ${userAnsweredCorrectly}`
     );

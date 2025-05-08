@@ -1,17 +1,12 @@
-import RiddleForm from "@/components/RiddleForm/riddle";
-import { getRandomRiddle, Riddle } from "@/lib/riddles";
-import riddlesData from "@/data/riddles.json";
 import React from "react";
-//import { useState } from "react";
+import RiddleComponent from "../components/RiddleForm/RiddleComponent/riddle-component";
 
-const riddlesDatabase: Riddle[] = riddlesData;
-
-export default function Home({ randomRiddle }: { randomRiddle: Riddle }) {
-  randomRiddle = getRandomRiddle(undefined, riddlesDatabase);
-
+export default function Home() {
   return (
-    <div>
-      <RiddleForm riddle={randomRiddle} />
-    </div>
+    <>
+      <h1>Riddle page!</h1>
+      <RiddleComponent />
+      <h2>Look at my github</h2>
+    </>
   );
 }
