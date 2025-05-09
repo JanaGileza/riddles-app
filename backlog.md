@@ -9,3 +9,7 @@
 
 1. Generalize and get rid of "riddle" name spaces in each component under RiddleForms folder to allow more universal component naming
 2. Generalize any specific attributes in current "riddle-x" components to allow more usability in other areas of the project
+
+##Updates Handled:
+
+1. Have generalized components as mentioned in the tech debt section to allow more usability, making the components more "dumb"
