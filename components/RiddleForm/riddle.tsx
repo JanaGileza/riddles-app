@@ -3,21 +3,31 @@
 import { isCorrectAnswer, type Riddle } from "@/lib/riddles";
 import RiddlePrompt from "./RiddlePrompt/riddle-prompt";
 import { useState } from "react";
-import RiddleAnswer from "./RiddleAnswer/riddle-answer";
+import { TextInput } from "../TextInput/text-input";
 import riddlesData from "@/data/riddles.json";
-//import RiddleButton from "./RiddleButton/riddle-button";
-import RiddleHint from "./RiddleHover/riddle-hover";
-import RiddleDialog, { CloseButtonData } from "./RiddleDialog/riddle-dialog";
+import Hint from "../Hover/hover";
+import Dialog, { CloseButtonData } from "../Dialog/dialog";
 
 const riddlesDatabase: Riddle[] = riddlesData;
 
-function RiddleForm({ riddle }: { riddle: Riddle | undefined }) {
+type RiddleFormProps = {
+  riddle: Riddle | undefined;
+  onLoadNextRiddleCallback: () => void;
+};
+
+function RiddleForm({ riddle, onLoadNextRiddleCallback }: RiddleFormProps) {
   const [attemptedAnswer, setAttemptedAnswer] = useState<string>("");
   const [hintRequested, setHintRequested] = useState<boolean>(false);
   const [guessCounter, setGuessCount] = useState<number>(0);
   const [dialogDescription, setDialogDescription] = useState<string>("");
   const [currentTitle, setTitle] = useState<string>("");
   const MAX_GUESS_COUNT = 3;
+
+  // run this any time the form needs to be cleaned up or reset, i.e, when user retrieves new riddle
+  function cleanupForm() {
+    setAttemptedAnswer("");
+    onLoadNextRiddleCallback();
+  }
 
   function onAnswerInputChange(e: React.ChangeEvent<HTMLInputElement>) {
     e.preventDefault();
@@ -36,10 +46,9 @@ function RiddleForm({ riddle }: { riddle: Riddle | undefined }) {
     console.log("mouse exited");
   }
 
-  function onUserClickedSubmit(open: boolean) {
-    if (open) {
-      onSubmitForm();
-    }
+  function onUserClickedSubmitButton() {
+    // validate text input isn't empty
+    onSubmitForm();
   }
 
   function onSubmitForm() {
@@ -69,38 +78,43 @@ function RiddleForm({ riddle }: { riddle: Riddle | undefined }) {
         setDialogDescription(
           "You have answered incorrectly! You have no more guesses."
         );
-      } else {
       }
     }
-    // if correct, update the UI accordingly!
-    // otherwise, numberOfAttemptedAnswers ++
   }
 
   const hintIfHovering = hintRequested ? riddle?.hint : undefined;
 
   const closeDialogButtonData: CloseButtonData = {
     text: "Close",
-    onClickCallback: (e) => console.log("Close button clicked!"),
+    onClickCloseCallback: () => console.log("Close button clicked!"),
   };
 
   const nextRiddleDialogButtonData: CloseButtonData = {
     text: "Next riddle",
-    onClickCallback: (e) => console.log("Next riddle button clicked!"),
+    onClickCloseCallback: () => cleanupForm(),
   };
 
   return (
     <div>
       <h2>Riddle</h2>
       <RiddlePrompt riddle={riddle} />
-      <RiddleAnswer onInputCallback={onAnswerInputChange} />
-      <RiddleDialog
-        onDialogOpenCallback={onUserClickedSubmit}
-        triggerText={"Submit"}
-        title={currentTitle}
-        description={dialogDescription}
-        closeButtons={[closeDialogButtonData, nextRiddleDialogButtonData]}
+      <TextInput
+        autoComplete="off"
+        labelText="Answer: "
+        name="attemptedAnswer"
+        onChange={onAnswerInputChange}
+        required
+        value={attemptedAnswer}
       />
-      <RiddleHint
+      <Dialog
+        closeButtons={[closeDialogButtonData, nextRiddleDialogButtonData]}
+        description={dialogDescription}
+        onClickTriggerCallback={onUserClickedSubmitButton}
+        title={currentTitle}
+        triggerText={"Submit"}
+      />
+      <Hint
+        hintText={"Hint"}
         onMouseEnterCallback={onHintMouseEnter}
         onMouseLeaveCallback={onHintMouseExit}
       />

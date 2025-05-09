@@ -1,19 +1,21 @@
 import React from "react";
 
-type RiddleHintProps = {
+type HintProps = {
+  hintText: string;
   onMouseEnterCallback: (e: React.MouseEvent<HTMLElement>) => void;
   onMouseLeaveCallback: (e: React.MouseEvent<HTMLElement>) => void;
 };
 
-function RiddleHint({
+function Hint({
+  hintText,
   onMouseEnterCallback,
   onMouseLeaveCallback,
-}: RiddleHintProps) {
+}: HintProps) {
   return (
     <p onMouseEnter={onMouseEnterCallback} onMouseLeave={onMouseLeaveCallback}>
-      Hint
+      {hintText}
     </p>
   );
 }
 
-export default RiddleHint;
+export default Hint;

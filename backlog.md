@@ -3,6 +3,7 @@
 ## UI
 
 1. Upon user feedback, determine if focus modal should be changed to a simple UI visual feedback instead.
+2. Turn off ability to type in answer box after 3 attempts potentially
 
 ## Tech Debt
 
