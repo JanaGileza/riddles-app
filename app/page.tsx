@@ -4,9 +4,12 @@ import RiddleComponent from "../components/RiddleForm/RiddleComponent/riddle-com
 export default function Home() {
   return (
     <>
-      <h1>Riddle page!</h1>
       <RiddleComponent />
-      <h2>Look at my github</h2>
+      <footer>
+        <a href="https://github.com/JanaGileza/riddles-app/tree/main">
+          Check out more about this project on my GitHub
+        </a>
+      </footer>
     </>
   );
 }

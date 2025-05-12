@@ -82,10 +82,12 @@ function RiddleForm({ riddle, onLoadNextRiddleCallback }: RiddleFormProps) {
     }
   }
 
+  //function revealAnswer () {}
+
   const hintIfHovering = hintRequested ? riddle?.hint : undefined;
 
   const closeDialogButtonData: CloseButtonData = {
-    text: "Close",
+    text: "End Game",
     onClickCloseCallback: () => console.log("Close button clicked!"),
   };
 
