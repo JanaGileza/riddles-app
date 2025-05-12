@@ -72,7 +72,9 @@ function RiddleForm({ riddle, onLoadNextRiddleCallback }: RiddleFormProps) {
       setDialogDescription(
         `You have answered incorrectly! Click 'OK' to try again. You have ${
           MAX_GUESS_COUNT - currentGuessCount
-        } guesses left!`
+        } ${
+          MAX_GUESS_COUNT - currentGuessCount === 1 ? "guess" : "guesses"
+        } left!`
       );
       if (currentGuessCount >= MAX_GUESS_COUNT) {
         setDialogDescription(
@@ -87,7 +89,7 @@ function RiddleForm({ riddle, onLoadNextRiddleCallback }: RiddleFormProps) {
   const hintIfHovering = hintRequested ? riddle?.hint : undefined;
 
   const closeDialogButtonData: CloseButtonData = {
-    text: "End Game",
+    text: "Close",
     onClickCloseCallback: () => console.log("Close button clicked!"),
   };
 
