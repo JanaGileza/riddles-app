@@ -84,8 +84,6 @@ function RiddleForm({ riddle, onLoadNextRiddleCallback }: RiddleFormProps) {
     }
   }
 
-  //function revealAnswer () {}
-
   const hintIfHovering = hintRequested ? riddle?.hint : undefined;
 
   const closeDialogButtonData: CloseButtonData = {

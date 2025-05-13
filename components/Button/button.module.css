@@ -1,7 +1,13 @@
+@import url("https://fonts.google.com/css?family=Almendra&display=swap");
+
 .button {
   padding: 8px 16px;
-  background-color: #b5a753;
-  color: white;
+  font-family: "Almendra", sans-serif;
+  font-weight: 700;
+  background-color: #ffc147;
+  color: black;
   border: none;
+  border-radius: 40px;
   cursor: pointer;
+  text-align: center;
 }
