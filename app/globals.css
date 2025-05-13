@@ -21,58 +21,69 @@ h2 {
   color: #ffe4af;
   font-size: 4.209rem;
   font-family: "Almendra", sans-serif;
+  text-align: center;
 }
 
 h3 {
   color: white;
   font-size: 3.157rem;
   font-family: "Almendra", sans-serif;
+  text-align: center;
 }
 
 h4 {
   color: white;
   font-size: 2.369rem;
   font-family: "Almendra", sans-serif;
+  text-align: center;
 }
 
 h5 {
   color: white;
   font-size: 1.777rem;
   font-family: "Almendra", sans-serif;
+  text-align: center;
 }
 
 h6 {
   color: white;
   font-size: 1.333rem;
   font-family: "Almendra", sans-serif;
+  text-align: center;
 }
 
 p {
   color: white;
   font-size: 1rem;
   font-family: "Fira Sans", sans-serif;
+  text-align: center;
 }
 
 a:link {
   color: #f9f1e3;
   text-decoration: underline;
+  text-align: center;
 }
 
 a:visited {
   color: #ffc147;
   text-decoration: underline;
+  text-align: center;
 }
 
 a:hover {
   color: #ffe4af;
   text-decoration: underline;
+  text-align: center;
 }
 
 a:active {
   color: #ffffff;
   text-decoration: underline;
+  text-align: center;
 }
 
 footer {
   color: #f9f1e3;
+  text-align: center;
 }

@@ -6,6 +6,7 @@ import { useState } from "react";
 import { TextInput } from "../TextInput/text-input";
 import riddlesData from "@/data/riddles.json";
 import Hint from "../Hover/hover";
+import inputStyles from "../TextInput/text-input.module.css";
 import Dialog, { CloseButtonData } from "../Dialog/dialog";
 
 const riddlesDatabase: Riddle[] = riddlesData;
@@ -101,6 +102,7 @@ function RiddleForm({ riddle, onLoadNextRiddleCallback }: RiddleFormProps) {
       <h2>Riddle</h2>
       <RiddlePrompt riddle={riddle} />
       <TextInput
+        className={`${inputStyles.input}`}
         autoComplete="off"
         labelText="Answer: "
         name="attemptedAnswer"
