@@ -37,7 +37,9 @@ export default function RiddleComponent() {
     <div>
       {!isPlaying ? (
         <>
-          <h1>Welcome to the Random Riddle Generator!</h1>
+          <h1 className="text-[24px] md:text-[36px] lg:text-[48px]">
+            Random Riddle Generator
+          </h1>
           {requestGameStart()}
         </>
       ) : (
