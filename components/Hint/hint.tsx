@@ -12,7 +12,11 @@ function Hint({
   onMouseLeaveCallback,
 }: HintProps) {
   return (
-    <p onMouseEnter={onMouseEnterCallback} onMouseLeave={onMouseLeaveCallback}>
+    <p
+      className="underline text-body font-body text-body-size decoration-dotted decoration-secondary"
+      onMouseEnter={onMouseEnterCallback}
+      onMouseLeave={onMouseLeaveCallback}
+    >
       {hintText}
     </p>
   );

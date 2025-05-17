@@ -8,7 +8,7 @@ type TextInputProps = {
 function TextInput(props: TextInputProps) {
   const { labelText, ...rest } = props;
   return (
-    <label>
+    <label className="text-body text-body-size font-body">
       {labelText} <input {...rest} />
     </label>
   );

@@ -5,7 +5,14 @@
 @theme {
   --color-primary: #ffc147;
   --color-primary-light: #fdfaf4;
-  --color-secondary: #003366, 
-  --color-tertiary: #965000,
-  --color-text: #000,
+  --color-secondary: #003366;
+  --color-tertiary: #965000;
+  --color-body: #000;
+
+  --font-heading: "Quintessential", serif;
+  --font-body: "Martel", serif;
+
+  --text-heading: 36px;
+  --text-subheading: 24px;
+  --text-body-size: 16px;
 }

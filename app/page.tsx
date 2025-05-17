@@ -1,14 +1,22 @@
 import React from "react";
 import RiddleComponent from "../components/RiddleForm/RiddleComponent/riddle-component";
+import Image from "next/image";
+import gitHubIcon from "../public/github-mark.svg";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex flex-grow min-h-full min-w-full flex-col items-center gap-[52px] bg-white px-[24px] py-[52px] md:px-[10%]">
+    <div className="flex flex-grow min-h-full min-w-full flex-col items-center gap-[52px] bg-primary-light px-[24px] py-[52px] md:px-[10%]">
       <RiddleComponent />
       <footer className="mt-auto items-baseline">
-        <a href="https://github.com/JanaGileza/riddles-app/tree/main">
-          Check out more about this project on my GitHub
-        </a>
+        <Link href="https://github.com/JanaGileza/riddles-app">
+          <Image
+            src={gitHubIcon}
+            alt="Check out my GitHub"
+            width={40}
+            height={40}
+          />
+        </Link>
       </footer>
     </div>
   );

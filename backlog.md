@@ -11,6 +11,10 @@
 2. Generalize any specific attributes in current "riddle-x" components to allow more usability in other areas of the project
 3. Give the user the ability to hover over some text in the dialog to allow them to view the answer if they choose (dialog versus the page itself so that they at least have to attempt the guess once)
 4. Allow the user to end the game both within the dialog and right after starting the game (before guessing) so they don't feel stuck in the game
+5. Create and add a new favicon for title
+6. Make it so that the user cannot click "close" and still attempt to answer the riddle after running out of guesses
+7. Investigate making the website look more cohesive overall
+8. Investigate adding tags and metadata for webcrawling
 
 ##Updates Handled:
 

@@ -1,11 +1,10 @@
 "use client";
 
 import { isCorrectAnswer, type Riddle } from "@/lib/riddles";
-import RiddlePrompt from "./RiddlePrompt/riddle-prompt";
 import { useState } from "react";
 import { TextInput } from "../TextInput/text-input";
 import riddlesData from "@/data/riddles.json";
-import Hint from "../Hover/hover";
+import Hint from "../Hint/hint";
 import inputStyles from "../TextInput/text-input.module.css";
 import Dialog, { CloseButtonData } from "../Dialog/dialog";
 
@@ -28,6 +27,7 @@ function RiddleForm({ riddle, onLoadNextRiddleCallback }: RiddleFormProps) {
   function cleanupForm() {
     setAttemptedAnswer("");
     onLoadNextRiddleCallback();
+    setGuessCount(0);
   }
 
   function onAnswerInputChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -71,7 +71,7 @@ function RiddleForm({ riddle, onLoadNextRiddleCallback }: RiddleFormProps) {
       const currentGuessCount = guessCounter + 1;
       setGuessCount(currentGuessCount);
       setDialogDescription(
-        `You have answered incorrectly! Click 'OK' to try again. You have ${
+        `You have answered incorrectly! Click 'Close' to try again. You have ${
           MAX_GUESS_COUNT - currentGuessCount
         } ${
           MAX_GUESS_COUNT - currentGuessCount === 1 ? "guess" : "guesses"
@@ -98,31 +98,37 @@ function RiddleForm({ riddle, onLoadNextRiddleCallback }: RiddleFormProps) {
   };
 
   return (
-    <div>
-      <h2>Riddle</h2>
-      <RiddlePrompt riddle={riddle} />
-      <TextInput
-        className={`${inputStyles.input}`}
-        autoComplete="off"
-        labelText="Answer: "
-        name="attemptedAnswer"
-        onChange={onAnswerInputChange}
-        required
-        value={attemptedAnswer}
-      />
-      <Dialog
-        closeButtons={[closeDialogButtonData, nextRiddleDialogButtonData]}
-        description={dialogDescription}
-        onClickTriggerCallback={onUserClickedSubmitButton}
-        title={currentTitle}
-        triggerText={"Submit"}
-      />
-      <Hint
-        hintText={"Hint"}
-        onMouseEnterCallback={onHintMouseEnter}
-        onMouseLeaveCallback={onHintMouseExit}
-      />
-      <p>{hintIfHovering}</p>
+    <div className="flex min-h-full min-w-full flex-col items-center gap-10">
+      <h2 className="text-center text-subheading font-heading text-secondary ">
+        Riddle
+      </h2>
+      <p className="text-body text-body-size font-body">{riddle?.riddle}</p>
+      <div className="flex flex-col gap-6 items-center">
+        <TextInput
+          className={`${inputStyles.input}`}
+          autoComplete="off"
+          labelText="Answer: "
+          name="attemptedAnswer"
+          onChange={onAnswerInputChange}
+          required
+          value={attemptedAnswer}
+        />
+        <Dialog
+          closeButtons={[closeDialogButtonData, nextRiddleDialogButtonData]}
+          description={dialogDescription}
+          onClickTriggerCallback={onUserClickedSubmitButton}
+          title={currentTitle}
+          triggerText={"Submit"}
+        />
+        <div>
+          <Hint
+            hintText={"Hint"}
+            onMouseEnterCallback={onHintMouseEnter}
+            onMouseLeaveCallback={onHintMouseExit}
+          />
+        </div>
+      </div>
+      <p className="text-body font-body text-body-size">{hintIfHovering}</p>
     </div>
   );
 }

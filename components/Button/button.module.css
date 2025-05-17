@@ -1,8 +1,8 @@
-@import url("https://fonts.google.com/css?family=Almendra&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Martel&display=swap");
 
 .button {
   padding: 8px 16px;
-  font-family: "Almendra", sans-serif;
+  font-family: "Martel", serif;
   font-weight: 700;
   background-color: #ffc147;
   color: black;
