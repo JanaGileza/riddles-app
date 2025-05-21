@@ -1,21 +1,44 @@
-# riddles-app Business Logic
+# Welcome to the Random Riddle App!
+The Random Riddles app is a web application that serves up random riddles to challenge and entertain users! 
 
-~~When the user navigates to /home they should be able to choose between easy, medium, and hard riddles~~
+Whether you're looking for a way to spend your break or just testing your brain, this app delivers a fun and interactive experience.
 
-When the user navigates to /randomriddles they should receive a riddle on the screen, the option to click and view a hint, and an entry box where they can guess the answer to the riddle - this endpoint will have the following properties: - users get 3 chances to guess correctly - an entry box will be on the screen, where the user will type in the answers and will be limited to ~60 characters - if the user answers incorrectly, the correct answer will display after the third try - after the fail condition is met, the user will be prompted to choose between either a new riddle ~~or to go back to the home screen~~ - if the user answers correctly before the fail criteria, they will be told they answered correctly, and given a prompt to receive a new riddle ~~or to go back to the home page~~ - the same riddle should not show up twice in a row
+<b>Live Demo:</b> [Random Riddle Generator](https://riddles-app-ten.vercel.app)
 
-1. No riddle should show up twice in a row
-2. The user should be able to input the correct answer given any case spelling and still be correct(correct answer having case discrepancies from key will not forfeit their correctness)
-3. The user will only have 3 attempts per riddle, and after that, the guesses will be reset after the fail criteria is met
-4. If a user answers incorrectly all 3 times, they will be shown the correct answer to the riddle on the screen
-5. The user will be able to click on part of the screen to receive a hint for the riddle - the correct hint will show up, and will only show up once the user clicks to view it
-6. The user cannot return an empty answer, there will be a message notifying them that they did not answer and to first type their guess before clicking enter/submit/etc
+## Features
+- <b>Random Riddles</b> - Get a new riddle instantly when you start the game
+- <b>Randomization</b> - While playing the game, you will never get the same riddle twice in a row!
+- <b>Form-Based Answer Submission</b> - Submit your answer directly in the app's input field to see if you're right
+- <b>Mobile-First Design</b> - Fully responsive layout for a smooth experience on all screen sizes
+- <b>Interactive UI</b> - Simple, user-friendly interface designed for ease of use and maximum fun
 
-Critical Functions:
-attemptAnswer() => scan the answer given by the user, determine if there is any input, and determine whether user input matches answer (case insensitive). if the answer given is correct or if user runs out of attempts, move to next riddle.
-randomRiddles() => display a random riddle, and disallow the user to see the same riddle twice in a row (i.e., user given riddle 3 first, the next riddle can be riddle 1 or riddle 2, but cannot be riddle 3 again immediately after)
-attemptsUsed() => displays to the user that they initially get 3 attempts, increments attempts used for each false answer, resets back to 0 used guesses upon a new riddle being displayed
-displayHint() => user will see the correct hint for the riddle they were given upon choosing to click and view the hint. will not display beforehand.
+## Features Coming Soon
+- <b>Riddle Submission Page</b>
+You'll soon be able to suggest riddles to be added to the database via a user-friendly form to the growing database.
 
-//"Riddle solved!"
-//"Your answer is incorrect. Try again!"
+- <b>Answer Reveal</b>
+Stuck on a tough riddle? Ran out of guesses? A reveal option is in the works for those who want to know the answer before moving on to the next riddle!
+
+## Technologies Used
+- <b>Next.js + TypeScript</b> utilized for backend logic and routing, developed using a test-driven approach
+- <b>React + TypeScript</b> powers the front-end with a modern, component-based architecture
+- <b>Jest</b> providing a fast and reliable testing framework crucial for Test-Driven Development
+- <b>Babel</b> enabling speedy transpilation, supporting the use of TypeScript and modern JavaScript features in this project
+- <b>Radix UI Primitives</b> added in for accessible and composable UI components
+- <b>Tailwind CSS</b> providing utility-first CSS frameworking for responsive and consistent styling
+- And finally, <b>Vercel</b> for seamless deployment and hosting, optimized for Next.js apps
+
+## Screenshots
+Here's a preview of the interface:
+![image](https://github.com/user-attachments/assets/3de5dbff-6a22-4abf-b209-93ea115f8bb0)
+![image](https://github.com/user-attachments/assets/2a9fbdbf-b136-4fe6-a349-a1b8f590c119)
+![image](https://github.com/user-attachments/assets/a66bc650-bf31-4e22-8b7e-ff66f8760433)
+![image](https://github.com/user-attachments/assets/fc4eb207-e014-4e93-819d-e90f7fa281e0)
+
+### Mobile View
+![image](https://github.com/user-attachments/assets/d1670efc-7f29-4b85-a477-a4b926b2c0ef)
+![image](https://github.com/user-attachments/assets/d87d8f7e-e40e-458a-8384-5e3efb84e9f5)
+![image](https://github.com/user-attachments/assets/fd8d3710-b256-44ae-aa01-113a7838e148)
+
+[!NOTE]
+This app is in active development. Design, features, and layout may change. Screenshots may not reflect the final version.
