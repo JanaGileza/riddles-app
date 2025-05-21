@@ -11,7 +11,7 @@ import Dialog, { CloseButtonData } from "../Dialog/dialog";
 const riddlesDatabase: Riddle[] = riddlesData;
 
 type RiddleFormProps = {
-  riddle: Riddle | undefined;
+  riddle: Riddle;
   onLoadNextRiddleCallback: () => void;
 };
 
@@ -60,7 +60,8 @@ function RiddleForm({ riddle, onLoadNextRiddleCallback }: RiddleFormProps) {
     }
     const userAnsweredCorrectly = isCorrectAnswer(
       attemptedAnswer,
-      riddlesDatabase
+      riddlesDatabase,
+      riddle?.riddle
     );
 
     if (userAnsweredCorrectly) {

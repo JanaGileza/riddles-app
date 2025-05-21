@@ -3,48 +3,79 @@ import { getRandomRiddle, isCorrectAnswer, Riddle } from "../riddles";
 describe("isCorrectAnswer() - Check if answer taken in matches answer given, case insensitive", () => {
   test("Given correct answer, returns true", () => {
     const correctAnswer = "correctAnswer";
+    const currentRiddle = "";
     const mockRiddles: Riddle[] = [
       {
         answer: correctAnswer,
-        riddle: "",
+        riddle: currentRiddle,
         id: 1,
         hint: "",
       },
     ];
-    const isCorrect = isCorrectAnswer(correctAnswer, mockRiddles);
+    const isCorrect = isCorrectAnswer(
+      correctAnswer,
+      mockRiddles,
+      currentRiddle
+    );
     expect(isCorrect).toBeTruthy();
   });
 
   test("Given correct answer with mismatching grammar, returns true", () => {
     const correctAnswer = "correctAnswer";
+    const currentRiddle = "";
     const mockRiddles: Riddle[] = [
       {
         answer: correctAnswer,
-        riddle: "",
+        riddle: currentRiddle,
         hint: "",
         id: 0,
       },
     ];
-    const isCorrect = isCorrectAnswer("123CORreCtaN  sw123er", mockRiddles);
+    const isCorrect = isCorrectAnswer(
+      "123CORreCtaN  sw123er",
+      mockRiddles,
+      currentRiddle
+    );
     expect(isCorrect).toBeTruthy();
   });
 
   test("Given incorrect answer, returns false", () => {
+    const currentRiddle = "";
     const mockRiddles: Riddle[] = [
       {
         answer: "not-fousndd",
-        riddle: "",
+        riddle: currentRiddle,
         hint: "",
         id: 0,
       },
     ];
-    const isCorrect = isCorrectAnswer("bad answer", mockRiddles);
+    const isCorrect = isCorrectAnswer("bad answer", mockRiddles, currentRiddle);
     expect(isCorrect).toBe(false);
   });
 
   test("Given an empty answer, returns false", () => {
-    const correctAnswer = isCorrectAnswer("", []);
+    const correctAnswer = isCorrectAnswer("", [], "");
     expect(correctAnswer).toBe(false);
+  });
+
+  test("Given correct answer to another riddle, returns false", () => {
+    const currentRiddle = "correct riddle";
+    const mockRiddles: Riddle[] = [
+      {
+        answer: "correct",
+        riddle: currentRiddle,
+        hint: "",
+        id: 0,
+      },
+      {
+        answer: "incorrect",
+        riddle: "incorrect riddle",
+        hint: "",
+        id: 1,
+      },
+    ];
+    const isCorrect = isCorrectAnswer("incorrect", mockRiddles, currentRiddle);
+    expect(isCorrect).toBe(false);
   });
 });
 

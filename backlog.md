@@ -4,6 +4,7 @@
 
 1. Upon user feedback, determine if focus modal should be changed to a simple UI visual feedback instead.
 2. Turn off ability to type in answer box after 3 attempts potentially
+3. Add shading to buttons when cursor is hovering over to give more user feedback
 
 ## Tech Debt
 
@@ -15,6 +16,7 @@
 6. Make it so that the user cannot click "close" and still attempt to answer the riddle after running out of guesses
 7. Investigate making the website look more cohesive overall
 8. Investigate adding tags and metadata for webcrawling
+9. Investigate solution for "Hint Hover" for mobile devices to allow a toggle state, since hover not supported
 
 ##Updates Handled:
 

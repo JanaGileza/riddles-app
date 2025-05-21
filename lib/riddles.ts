@@ -14,7 +14,8 @@ function stripAnswer(answer: string) {
 
 function isCorrectAnswer(
   attemptedAnswer: string,
-  riddlesDatabase: RiddlesDatabase
+  riddlesDatabase: RiddlesDatabase,
+  currentRiddle: Riddle["riddle"]
 ) {
   if (attemptedAnswer.toString() === "") {
     return false;
@@ -24,7 +25,7 @@ function isCorrectAnswer(
     (riddle) => stripAnswer(riddle.answer) === stripAnswer(attemptedAnswer)
   );
 
-  return maybeRiddle !== undefined;
+  return maybeRiddle?.riddle === currentRiddle;
 }
 
 function getRandomRiddle(
