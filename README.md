@@ -1,4 +1,4 @@
-# Welcome to the Random Riddle App!
+# Welcome to the Random Riddles App!
 The Random Riddles app is a web application that serves up random riddles to challenge and entertain users! 
 
 Whether you're looking for a way to spend your break or just testing your brain, this app delivers a fun and interactive experience.
