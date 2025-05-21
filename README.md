@@ -40,5 +40,5 @@ Here's a preview of the interface:
 ![image](https://github.com/user-attachments/assets/d87d8f7e-e40e-458a-8384-5e3efb84e9f5)
 ![image](https://github.com/user-attachments/assets/fd8d3710-b256-44ae-aa01-113a7838e148)
 
-[!NOTE]
-This app is in active development. Design, features, and layout may change. Screenshots may not reflect the final version.
+> [!NOTE]
+> This app is in active development. Design, features, and layout may change. Screenshots may not reflect the final version.
