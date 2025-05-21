@@ -55,7 +55,7 @@ export default function RiddleComponent() {
         </>
       ) : (
         <RiddleForm
-          riddle={currentRiddle}
+          riddle={currentRiddle!}
           onLoadNextRiddleCallback={loadNextRiddle}
         />
       )}
