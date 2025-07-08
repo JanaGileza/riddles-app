@@ -58,6 +58,95 @@
         "answer":"Well",
         "hint":"People often visit these to gather water",
         "id":10
+    },
+    {
+        "riddle":"What comes once in a minute, twice in a moment, but never in a thousand years?",
+        "answer":"M",
+        "hint":"What letter may be missing in a thousand years?",
+        "id":11
+    },
+    {
+        "riddle":"My life can be measured in hours, I serve by being devoured. Thin, I am quick - fat, I am slow. The wind is my foe - What am I?",
+        "answer":"Candle",
+        "hint":"What do you blow out on your birthday?",
+        "id":12
+    },
+    {
+        "riddle":"Round she is, yet flat as a board. Altar of the Lupine Lords. Jewel on black velvet, pearl in the sea - Unchanged yet everchanging eternally. What am I?",
+        "answer":"Moon",
+        "hint":"What is ever present in the night sky, sometimes even during the day?",
+        "id":13
+    },
+    {
+        "riddle": "To keep this you must first give it to another.",
+        "answer": "Your word",
+        "hint": "It's something you give in a promise to keep trust.",
+        "id": 14
+    },
+    {
+        "riddle": "The more I eat the larger I grow, but if I should ever drink I will die.",
+        "answer": "Fire",
+        "hint": "It feeds on air but dies with water.",
+        "id": 15
+    },
+    {
+        "riddle": "Two bodies have I, though together we are one. The more I stand still the faster I run.",
+        "answer": "hourglass",
+        "hint": "It measures time with sand but never moves itself.",
+        "id": 16
+    },    
+    {
+        "riddle": "I exist in the past, I am made in the present, but the future will never taint me.",
+        "answer": "Memories",
+        "hint": "They are created now but only live in what has already happened.",
+        "id": 17
+    },
+    {
+        "riddle": "What can run but never walks, has a mouth but never talks, has a head but never weeps, has a bed but never sleeps?",
+        "answer": "River",
+        "hint": "It flows through lands, has a mouth and a bed, but no legs or voice.",
+        "id": 18
+    },
+    {
+        "riddle": "The man who invented it doesn't want it. The man who bought it doesn't need it. The man who needs it doesn't know it. What is it?",
+        "answer": "A coffin",
+        "hint": "It's used after death, but never by the one who buys it.",
+        "id": 19
+    },
+    {
+        "riddle": "No sooner spoken than broken. What is it?",
+        "answer": "Silence",
+        "hint": "It vanishes the moment a word is said.",
+        "id": 20
+    },
+    {
+    "riddle": "What turns everything around but does not move?",
+    "answer": "Mirror",
+    "hint": "It reflects you without changing place.",
+    "id": 21
+    },
+    {       
+    "riddle": "What goes up and down but never moves?",
+    "answer": "Stairs",
+    "hint": "You use it to change levels without it moving.",
+    "id": 22
+    },
+    {
+    "riddle": "I speak without a mouth and hear without ears. I have no body, but I come alive with wind.",
+    "answer": "An echo",
+    "hint": "You’ll find me in mountains and empty halls.",
+    "id": 23
+    },
+    {
+    "riddle": "I rise each morning, set each night, Giving warmth as well as light. Center of our system, burning sphere, What bright object holds planets near?",
+    "answer": "The Sun",
+    "hint": "The source of all Earth’s energy.",
+    "id": 24
+    },
+    {
+    "riddle": "What has keys, but no locks; space, but no room; and you can enter, but not go in?",
+    "answer": "A keyboard",
+    "hint": "You use it to type, but it’s not a door.",
+    "id": 25
     }
-    
 ]
