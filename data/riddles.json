@@ -109,7 +109,7 @@
     },
     {
         "riddle": "The man who invented it doesn't want it. The man who bought it doesn't need it. The man who needs it doesn't know it. What is it?",
-        "answer": "A coffin",
+        "answer": "Coffin",
         "hint": "It's used after death, but never by the one who buys it.",
         "id": 19
     },
@@ -120,33 +120,33 @@
         "id": 20
     },
     {
-    "riddle": "What turns everything around but does not move?",
-    "answer": "Mirror",
-    "hint": "It reflects you without changing place.",
-    "id": 21
+        "riddle": "What turns everything around but does not move?",
+        "answer": "Mirror",
+        "hint": "It reflects you without changing place.",
+        "id": 21
     },
     {       
-    "riddle": "What goes up and down but never moves?",
-    "answer": "Stairs",
-    "hint": "You use it to change levels without it moving.",
-    "id": 22
+        "riddle": "What goes up and down but never moves?",
+        "answer": "Stairs",
+        "hint": "You use it to change levels without it moving.",
+        "id": 22
     },
     {
-    "riddle": "I speak without a mouth and hear without ears. I have no body, but I come alive with wind.",
-    "answer": "An echo",
-    "hint": "You’ll find me in mountains and empty halls.",
-    "id": 23
+        "riddle": "I speak without a mouth and hear without ears. I have no body, but I come alive with wind.",
+        "answer": "Echo",
+        "hint": "You’ll find me in mountains and empty halls.",
+        "id": 23
     },
     {
-    "riddle": "I rise each morning, set each night, Giving warmth as well as light. Center of our system, burning sphere, What bright object holds planets near?",
-    "answer": "The Sun",
-    "hint": "The source of all Earth’s energy.",
-    "id": 24
+        "riddle": "I rise each morning, set each night, Giving warmth as well as light. Center of our system, burning sphere, What bright object holds planets near?",
+        "answer": "Sun",
+        "hint": "The source of all Earth’s energy.",
+        "id": 24
     },
     {
-    "riddle": "What has keys, but no locks; space, but no room; and you can enter, but not go in?",
-    "answer": "A keyboard",
-    "hint": "You use it to type, but it’s not a door.",
-    "id": 25
+        "riddle": "What has keys, but no locks; space, but no room; and you can enter, but not go in?",
+        "answer": "keyboard",
+        "hint": "You use it to type, but it’s not a door.",
+        "id": 25
     }
 ]
