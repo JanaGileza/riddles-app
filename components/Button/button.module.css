@@ -11,3 +11,7 @@
   cursor: pointer;
   text-align: center;
 }
+
+.button:active {
+  background-color: #bd8a22;
+}
