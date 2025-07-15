@@ -21,6 +21,7 @@ function RiddleForm({ riddle, onLoadNextRiddleCallback }: RiddleFormProps) {
   const [guessCounter, setGuessCount] = useState<number>(0);
   const [dialogDescription, setDialogDescription] = useState<string>("");
   const [currentTitle, setTitle] = useState<string>("");
+  const [inputDisabled, setInputDisabled] = useState(false);
   const MAX_GUESS_COUNT = 3;
 
   // run this any time the form needs to be cleaned up or reset, i.e, when user retrieves new riddle
@@ -56,8 +57,11 @@ function RiddleForm({ riddle, onLoadNextRiddleCallback }: RiddleFormProps) {
     setTitle("Result: ");
 
     if (attemptedAnswer === "") {
-      return;
+      setTitle("");
+      setDialogDescription("Please enter a valid answer!");
+      return false;
     }
+
     const userAnsweredCorrectly = isCorrectAnswer(
       attemptedAnswer,
       riddlesDatabase,
@@ -79,6 +83,7 @@ function RiddleForm({ riddle, onLoadNextRiddleCallback }: RiddleFormProps) {
         } left!`
       );
       if (currentGuessCount >= MAX_GUESS_COUNT) {
+        setInputDisabled(true);
         setDialogDescription(
           "You have answered incorrectly! You have no more guesses."
         );
@@ -106,6 +111,8 @@ function RiddleForm({ riddle, onLoadNextRiddleCallback }: RiddleFormProps) {
       <p className="text-body text-body-size font-body">{riddle?.riddle}</p>
       <div className="flex flex-col gap-6 items-center">
         <TextInput
+          id="TextInput"
+          disabled={inputDisabled}
           className={`${inputStyles.input}`}
           autoComplete="off"
           labelText="Answer: "
