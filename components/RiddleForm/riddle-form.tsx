@@ -39,13 +39,13 @@ function RiddleForm({ riddle, onLoadNextRiddleCallback }: RiddleFormProps) {
   function onHintMouseEnter(e: React.MouseEvent<HTMLElement>) {
     e.preventDefault();
     setHintRequested(true);
-    console.log("mouse entered");
+    //console.log("mouse entered");
   }
 
   function onHintMouseExit(e: React.MouseEvent<HTMLElement>) {
     e.preventDefault();
     setHintRequested(false);
-    console.log("mouse exited");
+    //console.log("mouse exited");
   }
 
   function onUserClickedSubmitButton() {
@@ -111,7 +111,6 @@ function RiddleForm({ riddle, onLoadNextRiddleCallback }: RiddleFormProps) {
       <p className="text-body text-body-size font-body">{riddle?.riddle}</p>
       <div className="flex flex-col gap-6 items-center">
         <TextInput
-          id="TextInput"
           disabled={inputDisabled}
           className={`${inputStyles.input}`}
           autoComplete="off"

@@ -1,0 +1,116 @@
+import { useState } from "react";
+import Dialog, { CloseButtonData } from "../Dialog/dialog";
+import { TextInput } from "../TextInput/text-input";
+import inputStyles from "../TextInput/text-input.module.css";
+
+type FeedbackFormProps = {
+  name: string;
+  email: string;
+  body: string;
+};
+
+function FeedbackForm({ name, email, body }: FeedbackFormProps) {
+  const [nameInput, setNameInput] = useState<string>("");
+  const [emailInput, setEmailInput] = useState<string>("");
+  const [bodyInput, setBodyInput] = useState<string>("");
+  const [dialogDescription, setDialogDescription] = useState<string>("");
+  const [currentTitle, setTitle] = useState<string>("");
+
+  //simple clean up function when form needs to be cleaned up/reset
+  function cleanupForm() {
+    setNameInput("");
+    setEmailInput("");
+    setBodyInput("");
+  }
+
+  function onNameInputChange(e: React.ChangeEvent<HTMLInputElement>) {
+    e.preventDefault();
+    setNameInput(e.target.value);
+  }
+
+  function onEmailInputChange(e: React.ChangeEvent<HTMLInputElement>) {
+    e.preventDefault();
+    setEmailInput(e.target.value);
+  }
+
+  function onBodyInputChange(e: React.ChangeEvent<HTMLInputElement>) {
+    e.preventDefault();
+    setBodyInput(e.target.value);
+  }
+
+  function sanitizeUserInput() {
+    //ensure that user input is sanitized before being sent to app email
+    setNameInput(encodeURIComponent(nameInput));
+    setEmailInput(encodeURIComponent(emailInput));
+    setBodyInput(encodeURIComponent(bodyInput));
+  }
+
+  function onUserClickedSubmitButton() {
+    //validate input fields are not empty
+    onSubmitForm();
+  }
+
+  function onSubmitForm() {
+    sanitizeUserInput();
+    setDialogDescription(
+      "Have some feedback or a riddle suggestion? Fill out the form below and I'll get back to you as soon as possible!"
+    );
+    setTitle("Submit Your Feedback");
+
+    //currently building to ensure data is collected correctly while determining best API to use
+    if (nameInput || emailInput || bodyInput === "") {
+      return;
+    }
+  }
+
+  const closeDialogButtonData: CloseButtonData = {
+    text: "Close",
+    onClickCloseCallback: () => cleanupForm(),
+  };
+
+  const submitDialogButtonData: CloseButtonData = {
+    text: "Submit",
+    onClickCloseCallback: () => cleanupForm(),
+  };
+
+  return (
+    <div className="flex min-h-full min-w-full flex-col items-center gap-10">
+      <Dialog
+        closeButtons={[closeDialogButtonData, submitDialogButtonData]}
+        description={dialogDescription}
+        onClickTriggerCallback={onUserClickedSubmitButton}
+        title={currentTitle}
+        triggerText={"Give Feedback"}
+      >
+        <TextInput
+          className={`${inputStyles.input}`}
+          autoComplete="off"
+          labelText="Name: "
+          name="nameInput"
+          onChange={onNameInputChange}
+          required
+          value={nameInput}
+        />
+        <TextInput
+          className={`${inputStyles.input}`}
+          labelText="E-mail: "
+          name="emailInput"
+          onChange={onEmailInputChange}
+          required
+          value={emailInput}
+        />
+        <TextInput
+          className={`${inputStyles.input}`}
+          autoComplete="off"
+          labelText="Feedback: "
+          name="bodyInput"
+          onChange={onBodyInputChange}
+          required
+          value={bodyInput}
+        />
+      </Dialog>
+    </div>
+  );
+}
+
+export default FeedbackForm;

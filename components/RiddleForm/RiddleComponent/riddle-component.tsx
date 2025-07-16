@@ -38,7 +38,7 @@ export default function RiddleComponent() {
       {!isPlaying ? (
         <>
           <h1 className="text-heading font-heading text-secondary">
-            Random Riddle Generator
+            Random Riddle App
           </h1>
           <div className="flex flex-col items-center gap-[52px]">
             <p className="text-body font-body text-body-size">
@@ -48,7 +48,7 @@ export default function RiddleComponent() {
               mouse over the word &quot;Hint&quot; to receive a hint if
               you&apos;re stuck. Once you answer correctly or run out of
               guesses, click &quot;Next Riddle&quot; to try a new one. Good
-              luck, have fun! begin!
+              luck, have fun!
             </p>
             {renderStartButton()}
           </div>
