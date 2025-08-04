@@ -3,16 +3,16 @@ import Dialog, { CloseButtonData } from "../Dialog/dialog";
 import { TextInput } from "../TextInput/text-input";
 import inputStyles from "../TextInput/text-input.module.css";
 
-type FeedbackFormProps = {
+export type FeedbackFormProps = {
   name: string;
   email: string;
   body: string;
 };
 
 function FeedbackForm({ name, email, body }: FeedbackFormProps) {
-  const [nameInput, setNameInput] = useState<string>("");
-  const [emailInput, setEmailInput] = useState<string>("");
-  const [bodyInput, setBodyInput] = useState<string>("");
+  const [nameInput, setNameInput] = useState<string>(name);
+  const [emailInput, setEmailInput] = useState<string>(email);
+  const [bodyInput, setBodyInput] = useState<string>(body);
   const [dialogDescription, setDialogDescription] = useState<string>("");
   const [currentTitle, setTitle] = useState<string>("");
 
@@ -58,7 +58,8 @@ function FeedbackForm({ name, email, body }: FeedbackFormProps) {
     setTitle("Submit Your Feedback");
 
     //currently building to ensure data is collected correctly while determining best API to use
-    if (nameInput || emailInput || bodyInput === "") {
+    if (!nameInput || !emailInput || !bodyInput) {
+      alert("Please fill out all fields before submitting.");
       return;
     }
   }
