@@ -1,7 +1,10 @@
+"use client";
+
 import { useState } from "react";
 import Dialog, { CloseButtonData } from "../Dialog/dialog";
 import { TextInput } from "../TextInput/text-input";
 import inputStyles from "../TextInput/text-input.module.css";
+import Button from "../Button/button";
 
 export type FeedbackFormProps = {
   name: string;
@@ -50,12 +53,15 @@ function FeedbackForm({ name, email, body }: FeedbackFormProps) {
     onSubmitForm();
   }
 
-  function onSubmitForm() {
-    sanitizeUserInput();
+  function onUserClickedGiveFeedbackButton() {
     setDialogDescription(
       "Have some feedback or a riddle suggestion? Fill out the form below and I'll get back to you as soon as possible!"
     );
     setTitle("Submit Your Feedback");
+  }
+
+  function onSubmitForm() {
+    sanitizeUserInput();
 
     //currently building to ensure data is collected correctly while determining best API to use
     if (!nameInput || !emailInput || !bodyInput) {
@@ -71,15 +77,15 @@ function FeedbackForm({ name, email, body }: FeedbackFormProps) {
 
   const submitDialogButtonData: CloseButtonData = {
     text: "Submit",
-    onClickCloseCallback: () => cleanupForm(),
+    onClickCloseCallback: () => onUserClickedSubmitButton(),
   };
 
   return (
     <div className="flex min-h-full min-w-full flex-col items-center gap-10">
       <Dialog
-        closeButtons={[closeDialogButtonData, submitDialogButtonData]}
+        closeButtons={[closeDialogButtonData]}
         description={dialogDescription}
-        onClickTriggerCallback={onUserClickedSubmitButton}
+        onClickTriggerCallback={onUserClickedGiveFeedbackButton}
         title={currentTitle}
         triggerText={"Give Feedback"}
       >
@@ -109,6 +115,10 @@ function FeedbackForm({ name, email, body }: FeedbackFormProps) {
           required
           value={bodyInput}
         />
+        <Button
+          buttonText={submitDialogButtonData.text}
+          onClick={onUserClickedSubmitButton}
+        ></Button>
       </Dialog>
     </div>
   );

@@ -3,6 +3,7 @@ import RiddleComponent from "../components/RiddleForm/RiddleComponent/riddle-com
 import Image from "next/image";
 import gitHubIcon from "../public/github-mark.svg";
 import Link from "next/link";
+import FeedbackForm from "@/components/Feedback/feedback";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
             height={40}
           />
         </Link>
+        <FeedbackForm name={""} email={""} body={""} />
       </footer>
     </div>
   );
