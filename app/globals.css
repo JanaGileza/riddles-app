@@ -1,18 +1,17 @@
-@import url("https://fonts.googleapis.com/css2?family=Martel&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Quintessential&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Trykker&display=swap");
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #ffc147;
-  --color-primary-light: #fdfaf4;
+  --color-primary: #e8f1f2;
   --color-secondary: #003366;
-  --color-tertiary: #965000;
-  --color-body: #000;
+  --color-tertiary: #46724b;
+  --color-body: #0b0c08;
 
-  --font-heading: "Quintessential", serif;
-  --font-body: "Martel", serif;
+  --font-heading: "Inknut Antiqua", serif;
+  --font-subheading: "Playfair Display", serif;
+  --font-body: "Trykker", serif;
 
-  --text-heading: 36px;
-  --text-subheading: 24px;
+  --text-heading: 47.78px;
+  --text-subheading: 36.62px;
   --text-body-size: 16px;
 }

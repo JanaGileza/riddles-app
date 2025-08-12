@@ -41,7 +41,7 @@ function Dialog({
       <RadixDialog.Portal>
         <RadixDialog.Overlay className="bg-secondary opacity-75 min-w-full min-h-full absolute" />
         <div className="min-w-full h-screen absolute flex flex-col justify-center items-center">
-          <RadixDialog.Content className="flex flex-col items-center justify-center w-fit px-[32px] py-[24px] rounded-[56px] gap-[32px] mx-[16px] sm:mx-0 fixed bg-primary-light">
+          <RadixDialog.Content className="flex flex-col items-center justify-center w-fit px-[32px] py-[24px] rounded-[56px] gap-[32px] mx-[16px] sm:mx-0 fixed bg-primary">
             <RadixDialog.Title className="text-heading font-heading text-secondary">
               {title}
             </RadixDialog.Title>

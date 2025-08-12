@@ -7,7 +7,7 @@ import FeedbackForm from "@/components/Feedback/feedback";
 
 export default function Home() {
   return (
-    <div className="flex flex-grow min-h-full min-w-full flex-col items-center gap-[52px] bg-primary-light px-[24px] py-[52px] md:px-[10%]">
+    <div className="flex flex-grow min-h-full min-w-full flex-col items-center gap-[52px] bg-primary px-[24px] py-[52px] md:px-[10%]">
       <RiddleComponent />
       <footer className="mt-auto items-baseline">
         <Link href="https://github.com/JanaGileza/riddles-app">
