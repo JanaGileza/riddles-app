@@ -4,7 +4,6 @@ import { useState } from "react";
 import Dialog, { CloseButtonData } from "../Dialog/dialog";
 import { TextInput } from "../TextInput/text-input";
 import inputStyles from "../TextInput/text-input.module.css";
-import Button from "../Button/button";
 import getResponse from "./feedback-actions";
 import { areInputsValid } from "@/lib/userInput";
 
@@ -73,18 +72,20 @@ function FeedbackForm() {
 
   const closeDialogButtonData: CloseButtonData = {
     text: "Close",
+    doesClose: true,
     onClickCloseCallback: () => cleanupForm(),
   };
 
   const submitDialogButtonData: CloseButtonData = {
     text: "Submit",
+    doesClose: false,
     onClickCloseCallback: () => onUserClickedSubmitButton(),
   };
 
   return (
     <div className="flex min-h-full min-w-full flex-col items-center gap-10">
       <Dialog
-        closeButtons={[closeDialogButtonData]}
+        closeButtons={[closeDialogButtonData, submitDialogButtonData]}
         description={dialogDescription}
         onClickTriggerCallback={onUserClickedGiveFeedbackButton}
         title={currentTitle}
@@ -121,10 +122,6 @@ function FeedbackForm() {
             Your feedback was submitted successfully. Thank you!
           </p>
         ) : undefined}
-        <Button
-          buttonText={submitDialogButtonData.text}
-          onClick={onUserClickedSubmitButton}
-        ></Button>
       </Dialog>
     </div>
   );

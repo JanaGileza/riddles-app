@@ -95,11 +95,12 @@ function RiddleForm({ riddle, onLoadNextRiddleCallback }: RiddleFormProps) {
 
   const closeDialogButtonData: CloseButtonData = {
     text: "Close",
-    onClickCloseCallback: () => console.log("Close button clicked!"),
+    doesClose: true,
   };
 
   const nextRiddleDialogButtonData: CloseButtonData = {
     text: "Next riddle",
+    doesClose: true,
     onClickCloseCallback: () => cleanupForm(),
   };
 

@@ -5,6 +5,7 @@ import { PropsWithChildren } from "react";
 
 type CloseButtonData = {
   text: string;
+  doesClose: boolean;
   onClickCloseCallback?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
@@ -24,14 +25,24 @@ function Dialog({
   onClickTriggerCallback,
   children,
 }: DialogProps) {
-  const renderedCloseButtons = closeButtons.map((closeButtonData) => (
-    <RadixDialog.Close key={closeButtonData.text} asChild>
+  const renderedCloseButtons = closeButtons.map((closeButtonData) => {
+    const button = (
       <Button
         buttonText={closeButtonData.text}
         onClick={closeButtonData.onClickCloseCallback}
       />
-    </RadixDialog.Close>
-  ));
+    );
+
+    if (closeButtonData.doesClose) {
+      return (
+        <RadixDialog.Close key={closeButtonData.text} asChild>
+          {button}
+        </RadixDialog.Close>
+      );
+    }
+
+    return button;
+  });
 
   return (
     <RadixDialog.Root>

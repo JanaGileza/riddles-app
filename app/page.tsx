@@ -9,8 +9,11 @@ export default function Home() {
   return (
     <div className="flex flex-grow min-h-full min-w-full flex-col items-center gap-[52px] bg-primary px-[24px] py-[52px] md:px-[10%]">
       <RiddleComponent />
-      <footer className="mt-auto items-baseline">
-        <Link href="https://github.com/JanaGileza/riddles-app">
+      <footer className="flex flex-grow min-w-full flex-row items-center gap-[35%] px-[24px] py-[25%] md:px-[10%]">
+        <Link
+          href="https://github.com/JanaGileza/riddles-app"
+          className="w-fit h-fit shrink-0"
+        >
           <Image
             src={gitHubIcon}
             alt="Check out my GitHub"
