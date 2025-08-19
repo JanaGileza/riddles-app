@@ -5,6 +5,7 @@ import Dialog, { CloseButtonData } from "../Dialog/dialog";
 import { TextInput } from "../TextInput/text-input";
 import inputStyles from "../TextInput/text-input.module.css";
 import Button from "../Button/button";
+import getResponse from "./feedback-actions";
 
 export type FeedbackFormProps = {
   name: string;
@@ -18,6 +19,7 @@ function FeedbackForm({ name, email, body }: FeedbackFormProps) {
   const [bodyInput, setBodyInput] = useState<string>(body);
   const [dialogDescription, setDialogDescription] = useState<string>("");
   const [currentTitle, setTitle] = useState<string>("");
+  const [hasSubmittedForm, setHasSubmittedForm] = useState<boolean>(false);
 
   //simple clean up function when form needs to be cleaned up/reset
   function cleanupForm() {
@@ -51,6 +53,10 @@ function FeedbackForm({ name, email, body }: FeedbackFormProps) {
   function onUserClickedSubmitButton() {
     //validate input fields are not empty
     onSubmitForm();
+    setHasSubmittedForm(true);
+    cleanupForm();
+    getResponse();
+    alert("Thanks for your feedback! We will respond as soon as possible!");
   }
 
   function onUserClickedGiveFeedbackButton() {
@@ -68,6 +74,8 @@ function FeedbackForm({ name, email, body }: FeedbackFormProps) {
       alert("Please fill out all fields before submitting.");
       return;
     }
+
+    console.log(nameInput, emailInput, bodyInput);
   }
 
   const closeDialogButtonData: CloseButtonData = {
@@ -115,6 +123,11 @@ function FeedbackForm({ name, email, body }: FeedbackFormProps) {
           required
           value={bodyInput}
         />
+        {hasSubmittedForm ? (
+          <p className="text-body font-body text-body-size">
+            Your feedback was submitted successfully. Thank you!
+          </p>
+        ) : undefined}
         <Button
           buttonText={submitDialogButtonData.text}
           onClick={onUserClickedSubmitButton}
