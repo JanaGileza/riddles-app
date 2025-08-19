@@ -18,7 +18,7 @@ export default function Home() {
             height={40}
           />
         </Link>
-        <FeedbackForm name={""} email={""} body={""} />
+        <FeedbackForm />
       </footer>
     </div>
   );

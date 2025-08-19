@@ -2,9 +2,9 @@
 
 .button {
   padding: 8px 16px;
-  font-family: "Trykker", serif;
-  background-color: #46724b;
-  color: #e8f1f2;
+  font-family: var(--font-body);
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
   border: none;
   border-radius: 40px;
   cursor: pointer;
@@ -12,5 +12,5 @@
 }
 
 .button:active {
-  background-color: #2f4f2a;
+  background-color: var(--color-secondary);
 }

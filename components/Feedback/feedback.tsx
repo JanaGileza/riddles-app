@@ -6,20 +6,19 @@ import { TextInput } from "../TextInput/text-input";
 import inputStyles from "../TextInput/text-input.module.css";
 import Button from "../Button/button";
 import getResponse from "./feedback-actions";
+import { areInputsValid } from "@/lib/userInput";
 
-export type FeedbackFormProps = {
-  name: string;
-  email: string;
-  body: string;
-};
-
-function FeedbackForm({ name, email, body }: FeedbackFormProps) {
-  const [nameInput, setNameInput] = useState<string>(name);
-  const [emailInput, setEmailInput] = useState<string>(email);
-  const [bodyInput, setBodyInput] = useState<string>(body);
+function FeedbackForm() {
+  const [nameInput, setNameInput] = useState<string>("");
+  const [emailInput, setEmailInput] = useState<string>("");
+  const [bodyInput, setBodyInput] = useState<string>("");
   const [dialogDescription, setDialogDescription] = useState<string>("");
   const [currentTitle, setTitle] = useState<string>("");
   const [hasSubmittedForm, setHasSubmittedForm] = useState<boolean>(false);
+
+  console.log(nameInput);
+  console.log(emailInput);
+  console.log(bodyInput);
 
   //simple clean up function when form needs to be cleaned up/reset
   function cleanupForm() {
@@ -43,20 +42,26 @@ function FeedbackForm({ name, email, body }: FeedbackFormProps) {
     setBodyInput(e.target.value);
   }
 
-  function sanitizeUserInput() {
-    //ensure that user input is sanitized before being sent to app email
-    setNameInput(encodeURIComponent(nameInput));
-    setEmailInput(encodeURIComponent(emailInput));
-    setBodyInput(encodeURIComponent(bodyInput));
-  }
-
   function onUserClickedSubmitButton() {
     //validate input fields are not empty
-    onSubmitForm();
+    //currently building to ensure data is collected correctly while determining best API to use
+    const feedbackData = {
+      name: nameInput,
+      email: emailInput,
+      body: bodyInput,
+    };
+
+    if (!areInputsValid(feedbackData)) {
+      alert("Please fill out all fields before submitting.");
+    }
+
+    getResponse(feedbackData);
+
+    console.log(nameInput, emailInput, bodyInput);
+
     setHasSubmittedForm(true);
     cleanupForm();
-    getResponse();
-    alert("Thanks for your feedback! We will respond as soon as possible!");
+    // alert("Thanks for your feedback! We will respond as soon as possible!");
   }
 
   function onUserClickedGiveFeedbackButton() {
@@ -64,18 +69,6 @@ function FeedbackForm({ name, email, body }: FeedbackFormProps) {
       "Have some feedback or a riddle suggestion? Fill out the form below and I'll get back to you as soon as possible!"
     );
     setTitle("Submit Your Feedback");
-  }
-
-  function onSubmitForm() {
-    sanitizeUserInput();
-
-    //currently building to ensure data is collected correctly while determining best API to use
-    if (!nameInput || !emailInput || !bodyInput) {
-      alert("Please fill out all fields before submitting.");
-      return;
-    }
-
-    console.log(nameInput, emailInput, bodyInput);
   }
 
   const closeDialogButtonData: CloseButtonData = {

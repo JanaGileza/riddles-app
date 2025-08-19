@@ -1,8 +1,8 @@
 import * as React from "react";
 import { Html, Button, Text } from "@react-email/components";
-import { FeedbackFormProps } from "@/components/Feedback/feedback";
+import { FormData } from "@/components/Feedback/feedback";
 
-type FeedbackEmailProps = FeedbackFormProps & {
+type FeedbackEmailProps = FormData & {
   url: string;
 };
 
