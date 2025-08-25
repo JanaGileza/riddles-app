@@ -8,15 +8,19 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "email": "email dev"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.13",
     "@tailwindcss/postcss": "^4.1.7",
+    "@vercel/sdk": "^1.10.2",
+    "dotenv": "^17.2.1",
     "next": "15.2.4",
+    "nodemailer": "^7.0.5",
     "postcss": "^8.5.3",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
     "tailwindcss": "^4.1.7"
   },
   "devDependencies": {
@@ -26,6 +30,7 @@
     "@testing-library/react": "^16.2.0",
     "@types/jest": "^29.5.14",
     "@types/node": "^20",
+    "@types/nodemailer": "^7.0.1",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",

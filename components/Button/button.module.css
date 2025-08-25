@@ -1,11 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Martel&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Trykker&display=swap");
 
 .button {
   padding: 8px 16px;
-  font-family: "Martel", serif;
-  font-weight: 700;
-  background-color: #ffc147;
-  color: black;
+  font-family: var(--font-body);
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
   border: none;
   border-radius: 40px;
   cursor: pointer;
@@ -13,5 +12,5 @@
 }
 
 .button:active {
-  background-color: #bd8a22;
+  background-color: var(--color-secondary);
 }
