@@ -1,7 +1,6 @@
 "use server";
 
 import { sanitizeUserInput } from "@/lib/userInput";
-import dotenv from "dotenv";
 import nodemailer from "nodemailer";
 
 export type FeedbackData = {
@@ -10,13 +9,11 @@ export type FeedbackData = {
   body: string;
 };
 
-dotenv.config({ path: "./.env.credentials" });
-
-const recipient = process.env.FEEDBACK_RECIPIENT;
-const user = process.env.GMAIL_USER;
-const clientId = process.env.GMAIL_CLIENT_ID;
-const clientSecret = process.env.GMAIL_CLIENT_SECRET;
-const refreshToken = process.env.GMAIL_REFRESH_TOKEN;
+const fr = process.env.F_R;
+const u = process.env.U;
+const cid = process.env.C_ID;
+const cs = process.env.C_S;
+const rt = process.env.R_T;
 
 // Create a test account or replace with real credentials.
 const transporter = nodemailer.createTransport({
@@ -25,10 +22,10 @@ const transporter = nodemailer.createTransport({
   secure: true,
   auth: {
     type: "OAUTH2",
-    user: user,
-    clientId: clientId,
-    clientSecret: clientSecret,
-    refreshToken: refreshToken,
+    user: u,
+    clientId: cid,
+    clientSecret: cs,
+    refreshToken: rt,
   },
 });
 
@@ -36,9 +33,9 @@ const transporter = nodemailer.createTransport({
 const sendFeedbackEmail = async ({ name, email, body }: FeedbackData) => {
   const info = await transporter.sendMail({
     from: `${email}`,
-    to: recipient,
+    to: fr,
     subject: `New Feedback Received from ${name}`,
-    text: `${body}`, // plain‑text body
+    text: `Contact back at ${email}: ${body}`, // plain‑text body
   });
 
   console.log("Message sent:", info.messageId);
