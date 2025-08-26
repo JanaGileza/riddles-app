@@ -7,10 +7,9 @@ type TextInputProps = {
 
 function TextInput(props: TextInputProps) {
   const { labelText, ...rest } = props;
-
   return (
     <label className="text-body text-body-size font-body">
-      {labelText} <input {...rest} maxLength={50} />
+      {labelText} <input {...rest} />
     </label>
   );
 }
