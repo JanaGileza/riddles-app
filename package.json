@@ -12,6 +12,7 @@
     "email": "email dev"
   },
   "dependencies": {
+    "@next/env": "^15.5.1",
     "@radix-ui/react-dialog": "^1.1.13",
     "@tailwindcss/postcss": "^4.1.7",
     "@vercel/sdk": "^1.10.2",

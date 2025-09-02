@@ -23,7 +23,6 @@ Stuck on a tough riddle? Ran out of guesses? A reveal option is in the works for
 - <b>Next.js + TypeScript</b> utilized for backend logic and routing, developed using a test-driven approach
 - <b>React + TypeScript</b> powers the front-end with a modern, component-based architecture
 - <b>Jest</b> providing a fast and reliable testing framework crucial for Test-Driven Development
-- <b>Babel</b> enabling speedy transpilation, supporting the use of TypeScript and modern JavaScript features in this project
 - <b>Radix UI Primitives</b> added in for accessible and composable UI components
 - <b>Tailwind CSS</b> providing utility-first CSS frameworking for responsive and consistent styling
 - And finally, <b>Vercel</b> for seamless deployment and hosting, optimized for Next.js apps

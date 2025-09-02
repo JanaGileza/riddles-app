@@ -1,4 +1,42 @@
 import { getRandomRiddle, isCorrectAnswer, Riddle } from "../riddles";
+import { areInputsValid, sanitizeUserInput } from "../userInput";
+
+describe("sanitizeUserInput() - check that the input received is being sanitized, preventing any malicious code being ran in textInput boxes", () => {
+  test("Given input including non-alphabetical and non-numeric characters, the input will be returned sanitized", () => {
+    const name = "Random name! Input{}?";
+    const email = "R@and.om.email@here.com!!!!";
+    const body = "Random body where if()else()run dASTArdLY code!!!???";
+    const sanitizedInput = sanitizeUserInput({ name, email, body });
+    console.log(
+      "SANITIZED BODY:",
+      sanitizeUserInput({ name, email, body }).body
+    );
+    expect(sanitizedInput).toEqual({
+      name: "Random%20name!%20Input%7B%7D%3F",
+      email: "R%40and.om.email%40here.com!!!!",
+      body: "Random%20body%20where%20if()else()run%20dASTArdLY%20code!!!%3F%3F%3F",
+    });
+  });
+});
+
+describe("areInputsValid() - check that the fields are not empty and can be processed as valid input", () => {
+  test("Given empty fields, returns false", () => {
+    const name = "";
+    const email = "";
+    const body = "";
+    const invalidInput = areInputsValid({ name, email, body });
+    expect(invalidInput).toBe(false);
+  });
+
+  test("Given valid fields, returns true", () => {
+    const name = "Name";
+    const email = "name@email.com";
+    const body =
+      "do - a deer, a female deer. re, a drop of golden sun. Mi, a name I call myself!! Fa, a lon gl0ng w4y to run!!11!!";
+    const invalidInput = areInputsValid({ name, email, body });
+    expect(invalidInput).toBeTruthy();
+  });
+});
 
 describe("isCorrectAnswer() - Check if answer taken in matches answer given, case insensitive", () => {
   test("Given correct answer, returns true", () => {
