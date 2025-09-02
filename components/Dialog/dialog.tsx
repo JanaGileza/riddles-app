@@ -14,20 +14,21 @@ type DialogProps = {
   description: string;
   onClickTriggerCallback: (e: React.MouseEvent<HTMLButtonElement>) => void;
   closeButtons: Array<CloseButtonData>;
-  children?: React.ReactNode;
-};
+} & React.PropsWithChildren;
 
 function Dialog({
   closeButtons,
   triggerText,
   title,
   description,
+  children,
   onClickTriggerCallback,
 }: DialogProps) {
   const renderedCloseButtons = closeButtons.map((closeButtonData) => {
     const button = (
       <Button
         buttonText={closeButtonData.text}
+        key={closeButtonData.text}
         onClick={closeButtonData.onClickCloseCallback}
       />
     );
@@ -58,6 +59,7 @@ function Dialog({
             <RadixDialog.Description className="text-body-size font-body text-body">
               {description}
             </RadixDialog.Description>
+            {children}
             <div className="flex flex-row justify-around w-full">
               {renderedCloseButtons}
             </div>
