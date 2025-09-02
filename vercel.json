@@ -1,0 +1,8 @@
+{
+"git": {
+            "deploymentEnabled": {
+              "feature/feedback-form": false,
+              "feature/potential-UI": false
+            }
+          }
+        }
