@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 "use client";
 
 import { useState } from "react";
@@ -129,5 +128,3 @@ function FeedbackForm() {
 }
 
 export default FeedbackForm;
-=======
->>>>>>> parent of 3f7342a (Add feature for feedback form, minor changes to other files)

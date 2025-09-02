@@ -14,6 +14,7 @@ type DialogProps = {
   description: string;
   onClickTriggerCallback: (e: React.MouseEvent<HTMLButtonElement>) => void;
   closeButtons: Array<CloseButtonData>;
+  children?: React.ReactNode;
 };
 
 function Dialog({
