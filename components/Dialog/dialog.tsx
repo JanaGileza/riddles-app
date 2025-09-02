@@ -1,7 +1,6 @@
 import * as React from "react";
 import * as RadixDialog from "@radix-ui/react-dialog";
 import Button from "@/components/Button/button";
-import { PropsWithChildren } from "react";
 
 type CloseButtonData = {
   text: string;
@@ -15,7 +14,8 @@ type DialogProps = {
   description: string;
   onClickTriggerCallback: (e: React.MouseEvent<HTMLButtonElement>) => void;
   closeButtons: Array<CloseButtonData>;
-} & PropsWithChildren;
+  children?: React.ReactNode;
+};
 
 function Dialog({
   closeButtons,
@@ -23,7 +23,6 @@ function Dialog({
   title,
   description,
   onClickTriggerCallback,
-  children,
 }: DialogProps) {
   const renderedCloseButtons = closeButtons.map((closeButtonData) => {
     const button = (
@@ -59,7 +58,6 @@ function Dialog({
             <RadixDialog.Description className="text-body-size font-body text-body">
               {description}
             </RadixDialog.Description>
-            {children}
             <div className="flex flex-row justify-around w-full">
               {renderedCloseButtons}
             </div>

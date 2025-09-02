@@ -41,7 +41,7 @@ const sendFeedbackEmail = async ({ name, email, body }: FeedbackData) => {
 
 function getResponse({ name, email, body }: FeedbackData) {
   const sanitizedInput = sanitizeUserInput({ name, email, body });
-  sendFeedbackEmail(sanitizedInput);
+  console.log(sanitizedInput);
 }
 
 export default getResponse;
