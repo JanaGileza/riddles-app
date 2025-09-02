@@ -10,7 +10,7 @@ function sanitizeUserInput({ name, email, body }: FeedbackData): FeedbackData {
 }
 
 function areInputsValid({ name, email, body }: FeedbackData): boolean {
-  const isValid = name !== "" || email !== "" || body !== "";
+  const isValid = name !== "" && email !== "" && body !== "";
   // additional validation if desired!!
   return isValid;
 }

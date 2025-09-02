@@ -54,6 +54,7 @@ function FeedbackForm() {
 
     if (!areInputsValid(feedbackData)) {
       alert("Please fill out all fields before submitting.");
+      return;
     }
 
     getResponse(feedbackData);
