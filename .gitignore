@@ -46,3 +46,4 @@ prettier.config.js
 
 # tailwind 
 tailwind.config.js
+.env*.local
