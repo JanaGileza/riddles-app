@@ -33,9 +33,9 @@ const sendFeedbackEmail = async ({ name, email, body }: FeedbackData) => {
   console.log("Message sent:", info.messageId);
 };
 
-async function getResponse({ name, email, body }: FeedbackData) {
+function getResponse({ name, email, body }: FeedbackData) {
   const sanitizedInput = sanitizeUserInput({ name, email, body });
-  return await sendFeedbackEmail(sanitizedInput);
+  return sendFeedbackEmail(sanitizedInput);
 }
 
 export default getResponse;
