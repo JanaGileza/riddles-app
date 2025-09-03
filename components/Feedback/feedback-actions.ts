@@ -23,7 +23,8 @@ const transporter = nodemailer.createTransport({
 
 const sendFeedbackEmail = async ({ name, email, body }: FeedbackData) => {
   const info = await transporter.sendMail({
-    from: `${email}`,
+    from: u,
+    replyTo: `${email}`,
     to: fr,
     subject: `New Feedback Received from ${name}`,
     text: `Contact back at ${email}: ${body}`,
@@ -34,7 +35,7 @@ const sendFeedbackEmail = async ({ name, email, body }: FeedbackData) => {
 
 function getResponse({ name, email, body }: FeedbackData) {
   const sanitizedInput = sanitizeUserInput({ name, email, body });
-  sendFeedbackEmail(sanitizedInput);
+  return sendFeedbackEmail(sanitizedInput);
 }
 
 export default getResponse;
