@@ -23,29 +23,19 @@ const transporter = nodemailer.createTransport({
 
 const sendFeedbackEmail = async ({ name, email, body }: FeedbackData) => {
   const info = await transporter.sendMail({
-    from: `${email}`,
+    from: u,
+    replyTo: `${email}`,
     to: fr,
     subject: `New Feedback Received from ${name}`,
     text: `Contact back at ${email}: ${body}`,
   });
 
   console.log("Message sent:", info.messageId);
-  try {
-    const info = await transporter.sendMail({
-      from: `${email}`,
-      to: fr,
-      subject: `New Feedback Received from ${name}`,
-      text: `Contact back at ${email}: ${body}`,
-    });
-    console.log("Message sent:", info);
-  } catch (err) {
-    console.error("Nodemailer error:", err);
-  }
 };
 
-function getResponse({ name, email, body }: FeedbackData) {
+async function getResponse({ name, email, body }: FeedbackData) {
   const sanitizedInput = sanitizeUserInput({ name, email, body });
-  sendFeedbackEmail(sanitizedInput);
+  return await sendFeedbackEmail(sanitizedInput);
 }
 
 export default getResponse;
