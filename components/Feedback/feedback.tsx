@@ -36,7 +36,9 @@ function FeedbackForm() {
     setEmailInput(e.target.value);
   }
 
-  function onBodyInputChange(e: React.ChangeEvent<HTMLInputElement>) {
+  function onBodyInputChange(
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) {
     e.preventDefault();
     setBodyInput(e.target.value);
   }
@@ -109,15 +111,20 @@ function FeedbackForm() {
           required
           value={emailInput}
         />
-        <TextInput
-          className={`${inputStyles.input}`}
-          autoComplete="off"
-          labelText="Feedback: "
-          name="bodyInput"
-          onChange={onBodyInputChange}
-          required
-          value={bodyInput}
-        />
+        <label className="bg-primary font-body text-body-size">
+          {"Feedback: "}
+          <textarea
+            maxLength={300}
+            aria-multiline={true}
+            className={`${inputStyles.input}`}
+            autoComplete="off"
+            name="bodyInput"
+            onChange={onBodyInputChange}
+            required
+            value={bodyInput}
+            rows={4}
+          />
+        </label>
         {hasSubmittedForm ? (
           <p className="text-body font-body text-body-size">
             Your feedback was submitted successfully. Thank you!

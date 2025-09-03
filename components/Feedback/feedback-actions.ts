@@ -9,22 +9,15 @@ export type FeedbackData = {
   body: string;
 };
 
-const fr = process.env.F_R;
-const u = process.env.U;
-const cid = process.env.C_ID;
-const cs = process.env.C_S;
-const rt = process.env.R_T;
+const fr = process.env.FEEDBACK_RECIPIENT;
+const u = process.env.USER;
+const ap = process.env.A;
 
 const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 465,
-  secure: true,
+  service: "gmail",
   auth: {
-    type: "OAUTH2",
     user: u,
-    clientId: cid,
-    clientSecret: cs,
-    refreshToken: rt,
+    pass: ap,
   },
 });
 
