@@ -11,7 +11,7 @@ Whether you're looking for a way to spend your break or just testing your brain,
 - <b>Form-Based Answer Submission</b> - Submit your answer directly in the app's input field to see if you're right
 - <b>Mobile-First Design</b> - Fully responsive layout for a smooth experience on all screen sizes
 - <b>Interactive UI</b> - Simple, user-friendly interface designed for ease of use and maximum fun while meeting WCAG AAA guidelines!
-- <b>Feedback Form</b> - Have riddle suggestions or website feedback? Simply click the "Give Feedback" button in the bottom left of the site to send your feedback!
+- <b>Feedback Form</b> - Have riddle suggestions or website feedback? Simply click the "Give Feedback" button in the bottom right of the site to send your feedback!
 
 ## Features Coming Soon
 
