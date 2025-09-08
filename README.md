@@ -3,18 +3,17 @@ The Random Riddles app is a web application that serves up random riddles to cha
 
 Whether you're looking for a way to spend your break or just testing your brain, this app delivers a fun and interactive experience.
 
-<b>Live Demo:</b> [Random Riddle Generator](https://riddles-app-ten.vercel.app)
+<b>Live Demo:</b> [Random Riddle Generator](https://riddles-app-janagilezas-projects.vercel.app/)
 
 ## Features
 - <b>Random Riddles</b> - Get a new riddle instantly when you start the game
 - <b>Randomization</b> - While playing the game, you will never get the same riddle twice in a row!
 - <b>Form-Based Answer Submission</b> - Submit your answer directly in the app's input field to see if you're right
 - <b>Mobile-First Design</b> - Fully responsive layout for a smooth experience on all screen sizes
-- <b>Interactive UI</b> - Simple, user-friendly interface designed for ease of use and maximum fun
+- <b>Interactive UI</b> - Simple, user-friendly interface designed for ease of use and maximum fun while meeting WCAG AAA guidelines!
+- <b>Feedback Form</b> - Have riddle suggestions or website feedback? Simply click the "Give Feedback" button in the bottom right of the site to send your feedback!
 
 ## Features Coming Soon
-- <b>Riddle Submission Page</b>
-You'll soon be able to suggest riddles to be added to the database via a user-friendly form to the growing database.
 
 - <b>Answer Reveal</b>
 Stuck on a tough riddle? Ran out of guesses? A reveal option is in the works for those who want to know the answer before moving on to the next riddle!
@@ -25,19 +24,24 @@ Stuck on a tough riddle? Ran out of guesses? A reveal option is in the works for
 - <b>Jest</b> providing a fast and reliable testing framework crucial for Test-Driven Development
 - <b>Radix UI Primitives</b> added in for accessible and composable UI components
 - <b>Tailwind CSS</b> providing utility-first CSS frameworking for responsive and consistent styling
+- <b>Nodemailer</b> to allow for the feedback form fields to be sent to the app's email
 - And finally, <b>Vercel</b> for seamless deployment and hosting, optimized for Next.js apps
 
 ## Screenshots
 Here's a preview of the interface:
-![image](https://github.com/user-attachments/assets/3de5dbff-6a22-4abf-b209-93ea115f8bb0)
-![image](https://github.com/user-attachments/assets/2a9fbdbf-b136-4fe6-a349-a1b8f590c119)
-![image](https://github.com/user-attachments/assets/a66bc650-bf31-4e22-8b7e-ff66f8760433)
-![image](https://github.com/user-attachments/assets/fc4eb207-e014-4e93-819d-e90f7fa281e0)
+![image](https://github.com/user-attachments/assets/6a184877-95d3-45d7-988d-9b23d72d597b)
+![image](https://github.com/user-attachments/assets/dd5ed867-b5ad-4887-ad7e-7a08e79299f9)
+![image](https://github.com/user-attachments/assets/e4fa8ba3-f73e-4c3c-9194-96027413f97e)
+![image](https://github.com/user-attachments/assets/8e359d25-4cb6-4a52-bd03-4143cdcdc8ec)
+![image](https://github.com/user-attachments/assets/58b85d17-d1ee-44fb-9382-c608daae0971)
+![image](https://github.com/user-attachments/assets/0fb44824-5c53-4e20-8cc8-c2058727f39c)
 
 ### Mobile View
-![image](https://github.com/user-attachments/assets/d1670efc-7f29-4b85-a477-a4b926b2c0ef)
-![image](https://github.com/user-attachments/assets/d87d8f7e-e40e-458a-8384-5e3efb84e9f5)
-![image](https://github.com/user-attachments/assets/fd8d3710-b256-44ae-aa01-113a7838e148)
+![image](https://github.com/user-attachments/assets/44aee648-701d-40af-9500-04a27130c1a8)
+![image](https://github.com/user-attachments/assets/11ac904e-c4c7-4822-b762-ede0955a03f0)
+![image](https://github.com/user-attachments/assets/df44ca5c-bdc9-41b5-b1de-7971dc38e330)
+![image](https://github.com/user-attachments/assets/e0286a66-3089-486c-82cb-0cd7d77793a0)
+![image](https://github.com/user-attachments/assets/1bf505ac-e6af-487e-a068-d17a30e2c035)
 
 > [!NOTE]
 > This app is in active development. Design, features, and layout may change. Screenshots may not reflect the final version.
