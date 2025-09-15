@@ -3,8 +3,23 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Random Riddle Generator",
-  icons: {
-    icon: "/favicon.ico",
+  generator: "Next.js",
+  description: "Test your knowledge by solving randomized riddles!",
+  keywords: [
+    "riddles",
+    "random riddles",
+    "random riddle generator",
+    "riddle game",
+    "random riddle game",
+    "riddles app",
+    "random riddle app",
+    "riddle app",
+  ],
+  authors: [{ name: "Jana Gileza", url: "https://github.com/JanaGileza" }],
+  formatDetection: {
+    email: false,
+    telephone: false,
+    address: false,
   },
 };
 
